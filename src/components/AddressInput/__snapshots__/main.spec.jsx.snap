@@ -6,8 +6,5 @@ Array [
   <input
     type="text"
   />,
-  <button>
-    Go
-  </button>,
 ]
 `;

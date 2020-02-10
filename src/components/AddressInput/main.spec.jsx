@@ -39,11 +39,4 @@ describe("AddressInput", () => {
 
     expect(onChange).toHaveBeenCalledTimes(1);
   });
-
-  it("has submit button", () => {
-    const title = "Holaho";
-    const component = mount(<AddressInput title={title} />);
-
-    expect(component.find("button").length).toBe(1);
-  });
 });
