@@ -1,17 +1,26 @@
 import React, { useState } from "react";
+
 import AddressInput from "../components/AddressInput";
 import FieldDisplay from "../components/FieldDisplay";
-import { useBlockchainData } from "../hooks/blockchain.mock";
-import { nodeConfig } from "../config/blockchain";
+import useBlockchainData from "../hooks/useBlockchainData";
+import { nodeConfig, contractAddress } from "../config/blockchain";
 import ErrorDisplay from "../components/ErrorDisplay";
 import Loader from "../components/Loader";
 
 const MainScreen = () => {
   const [address, setAddress] = useState("");
 
-  const { icon, balance, error, loading, tokens } = useBlockchainData({
+  const {
+    error,
+    loading,
+    icon,
+    balance,
+    tokens,
+    guardians
+  } = useBlockchainData({
     nodeConfig,
-    address
+    address,
+    contractAddress
   });
 
   const tokenFields = tokens.map(token => {
@@ -27,13 +36,18 @@ const MainScreen = () => {
       />
 
       {error && <ErrorDisplay error={error} />}
-      {loading && <Loader />}
+      {!error && loading && <Loader />}
 
       {!error && !loading && (
         <>
           <div>
             <h2>Wallet balance</h2>
             <FieldDisplay value={balance} icon={icon} />
+          </div>
+
+          <div>
+            <h2>Guardians</h2>
+            <FieldDisplay value={guardians} />
           </div>
 
           <div>
