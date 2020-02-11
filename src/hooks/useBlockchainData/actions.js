@@ -6,7 +6,6 @@ const actions = {
   SET_BALANCE: "SET_BALANCE",
   SET_GUARDIANS: "SET_GUARDIANS",
   SET_TOKENS: "SET_TOKENS",
-  ADD_TOKEN: "ADD_TOKEN"
 };
 
 export default actions;

@@ -9,7 +9,6 @@ const {
   SET_BALANCE,
   SET_GUARDIANS,
   SET_TOKENS,
-  ADD_TOKEN,
   RESET_LOADING
 } = actions;
 
@@ -32,8 +31,6 @@ const reducer = (state, action) => {
       return merge(state, { guardians: payload });
     case SET_TOKENS:
       return merge(state, { tokens: payload });
-    case ADD_TOKEN:
-      return merge(state, { tokens: [...state.tokens, payload] });
     default:
       return state;
   }

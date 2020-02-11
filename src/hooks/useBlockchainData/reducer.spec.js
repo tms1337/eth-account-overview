@@ -8,7 +8,6 @@ const {
   SET_BALANCE,
   SET_GUARDIANS,
   SET_TOKENS,
-  ADD_TOKEN,
   RESET_LOADING
 } = actions;
 
@@ -148,23 +147,5 @@ describe("reducer", () => {
       { type: SET_TOKENS, payload: tokens }
     );
     expect(nextTokens).toEqual(tokens);
-  });
-
-  it("should be able to add token", () => {
-    const tokens = [
-      { name: "BAT", balance: 500 },
-      { name: "0x", balance: 600 }
-    ];
-
-    const addedToken = {
-      name: "ADD",
-      balance: 2
-    };
-
-    const { tokens: nextTokens } = reducer(
-      { tokens },
-      { type: ADD_TOKEN, payload: addedToken }
-    );
-    expect(nextTokens).toEqual([...tokens, addedToken]);
   });
 });

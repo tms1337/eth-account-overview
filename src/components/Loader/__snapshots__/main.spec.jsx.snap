@@ -1,3 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Loader renders snapshot 1`] = `"Loading..."`;
+exports[`Loader renders snapshot 1`] = `
+<img
+  alt="data is loading"
+  src="https://media3.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif"
+  style={
+    Object {
+      "width": "50px",
+    }
+  }
+/>
+`;
