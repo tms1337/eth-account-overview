@@ -1,10 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AddressInput renders snapshot 1`] = `
-Array [
-  <h1 />,
+<div>
+  <h2
+    style={
+      Object {
+        "color": "#FF875B",
+        "fontSize": "25px",
+      }
+    }
+  />
   <input
+    style={
+      Object {
+        "appearance": "none",
+        "border": "none",
+        "borderBottom": "1px solid black",
+        "color": "#5c5b59",
+        "fontSize": "20px",
+        "height": "20px",
+        "outline": "none",
+        "width": "100%",
+      }
+    }
     type="text"
-  />,
-]
+  />
+</div>
 `;

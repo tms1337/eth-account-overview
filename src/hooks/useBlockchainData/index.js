@@ -35,11 +35,13 @@ const useBlockchainData = ({ nodeConfig, address, contractAddress }) => {
       if (!isAddress(address)) {
         dispatch({
           type: SET_ERROR,
-          payload: "You need to enter a valid ETH address"
+          payload:
+            "You need to enter a valid ETH address i.e. 0x592859824C9D8A97e0f61B22765fE1302fF3Bb60"
         });
       } else {
         try {
           dispatch({ type: RESET_LOADING });
+          dispatch({ type: RESET_ERROR });
           
           const balance = await fetchBalance({ address, nodeConfig });
           dispatch({ type: SET_BALANCE, payload: balance });
@@ -53,8 +55,6 @@ const useBlockchainData = ({ nodeConfig, address, contractAddress }) => {
 
           const tokens = await fetchTokens({ address, nodeConfig });
           dispatch({ type: SET_TOKENS, payload: tokens });
-
-          dispatch({ type: RESET_ERROR });
         } catch (error) {
           console.log({ error });
 

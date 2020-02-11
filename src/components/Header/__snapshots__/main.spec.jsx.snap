@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders snapshot 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "background": "#FF875B",
+      "color": "#fff",
+      "display": "flex",
+      "justifyContent": "center",
+    }
+  }
+>
+  <h2 />
+</div>
+`;

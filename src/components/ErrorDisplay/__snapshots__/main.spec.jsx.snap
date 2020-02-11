@@ -1,3 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ErrorDisplay renders snapshot 1`] = `null`;
+exports[`ErrorDisplay renders snapshot 1`] = `
+<div
+  style={
+    Object {
+      "color": "#ff5b5b",
+    }
+  }
+/>
+`;

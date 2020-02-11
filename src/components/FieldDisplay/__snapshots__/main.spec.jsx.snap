@@ -1,3 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FieldDisplay renders snapshot 1`] = `<div />`;
+exports[`FieldDisplay renders snapshot 1`] = `
+<div
+  style={
+    Object {
+      "display": "flex",
+      "fontSize": "20px",
+    }
+  }
+>
+  <div />
+</div>
+`;

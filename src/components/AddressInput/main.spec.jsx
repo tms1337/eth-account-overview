@@ -15,15 +15,15 @@ describe("AddressInput", () => {
     const title = "Enter your wallet address";
     const component = mount(<AddressInput title={title} />);
 
-    expect(component.find("h1").length).toBe(1);
-    expect(component.find("h1").text()).toBe(title);
+    expect(component.find("h2").length).toBe(1);
+    expect(component.find("h2").text()).toBe(title);
     expect(component.find("input").length).toBe(1);
   });
 
   it("displays input with different title", () => {
     const title = "Different title";
     const component = mount(<AddressInput title={title} />);
-    expect(component.find("h1").text()).toBe(title);
+    expect(component.find("h2").text()).toBe(title);
     expect(component.find("input").length).toBe(1);
   });
 
