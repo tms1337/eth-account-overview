@@ -3,13 +3,14 @@ import { colors } from "../../config/ui";
 
 const AddressInput = ({ title, onChange, registerField, isError }) => {
   const inputStyle = isError
-    ? { ...styles.input, ...styles.errorInput }
+    ? styles.errorInput
     : styles.input;
 
   return (
     <div>
       <h2 style={styles.title}>{title}</h2>
       <input
+        spellCheck={false}
         style={inputStyle}
         type="text"
         onChange={onChange}
@@ -27,15 +28,19 @@ const styles = {
   input: {
     width: "100%",
     height: "20px",
-    appearance: "none",
     outline: "none",
     border: "none",
-    borderBottom: "2px solid black",
+    borderBottom: `1.5px solid ${colors.DARK_GREY}`,
     fontSize: "20px",
     color: colors.DARK_GREY
   },
   errorInput: {
-    border: `2px solid ${colors.ERROR}`,
+    width: "100%",
+    height: "20px",
+    outline: "none",
+    border: `1.5px solid ${colors.ERROR}`,
+    fontSize: "20px",
+    color: colors.DARK_GREY
   }
 };
 
