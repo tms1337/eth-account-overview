@@ -1,3 +1,5 @@
+import merge from "deepmerge";
+
 import actions from "./actions";
 
 const {
@@ -13,24 +15,25 @@ const {
 
 const reducer = (state, action) => {
   const { type, payload } = action;
+  const { part, error } = payload;
 
   switch (type) {
     case SET_ERROR:
-      return { ...state, error: payload };
+      return merge(state, { error: { [part]: error } });
     case RESET_ERROR:
-      return { ...state, error: false };
+      return merge(state, { error: { [part]: false } });
     case SET_LOADING:
-      return { ...state, loading: true };
+      return merge(state, { loading: { [part]: true } });
     case RESET_LOADING:
-      return { ...state, loading: false };
+      return merge(state, { loading: { [part]: false } });
     case SET_BALANCE:
-      return { ...state, balance: payload };
+      return merge(state, { balance: payload });
     case SET_GUARDIANS:
-      return { ...state, guardians: payload };
+      return merge(state, { guardians: payload });
     case SET_TOKENS:
-      return { ...state, tokens: payload };
+      return merge(state, { tokens: payload });
     case ADD_TOKEN:
-      return { ...state, tokens: [...state.tokens, payload] };
+      return merge(state, { tokens: [...state.tokens, payload] });
     default:
       return state;
   }

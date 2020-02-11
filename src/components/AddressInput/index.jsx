@@ -30,7 +30,7 @@ const styles = {
     appearance: "none",
     outline: "none",
     border: "none",
-    borderBottom: "1px solid black",
+    borderBottom: "2px solid black",
     fontSize: "20px",
     color: colors.DARK_GREY
   },

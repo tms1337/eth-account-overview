@@ -22,22 +22,27 @@ const fetchGuardians = async ({
 };
 
 const fetchTokens = async ({ address }) => {
-  const response = await fetch(
-    `http://api.ethplorer.io/getAddressInfo/${address}?apiKey=freekey`,
-    { mode: "no-cors" }
-  );
+  try {
+    const response = await fetch(
+      `http://api.ethplorer.io/getAddressInfo/${address}?apiKey=freekey`,
+      { mode: "no-cors" }
+    );
 
-  const { status } = response;
+    const { status } = response;
 
-  if (status === 200) {
-    const { tokens } = await response.json();
+    if (status && status === 200) {
+      const { tokens } = await response.json();
 
-    return tokens.map(({ balance, tokenInfo: { symbol, decimals } }) => ({
-      name: symbol,
-      balance: (balance / 10 ** decimals).toString()
-    }));
-  } else {
-    throw new Error("Non 200 response while fetching tokens");
+      return tokens.map(({ balance, tokenInfo: { symbol, decimals } }) => ({
+        name: symbol,
+        balance: (balance / 10 ** decimals).toString()
+      }));
+    } else {
+      throw new Error("Non 200 response while fetching tokens");
+    }
+  } catch (error) {
+    console.error({ error });
+    throw error;
   }
 };
 

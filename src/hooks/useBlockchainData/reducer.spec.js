@@ -13,62 +13,102 @@ const {
 } = actions;
 
 describe("reducer", () => {
-  it("should be able to set error", () => {
+  it("should be able to set screen error", () => {
     const error = "My error";
     const { error: nextError } = reducer(
       { error: false },
-      { type: SET_ERROR, payload: error }
+      { type: SET_ERROR, payload: { part: "screen", error } }
     );
-    expect(nextError).toBe(error);
+    expect(nextError.screen).toBe(error);
   });
 
-  it("should be able to set another error", () => {
+  it("should be able to set another screen error", () => {
     const error = "Another error";
     const { error: nextError } = reducer(
       { error: false },
-      { type: SET_ERROR, payload: error }
+      { type: SET_ERROR, payload: { part: "screen", error } }
     );
-    expect(nextError).toBe(error);
+    expect(nextError.screen).toBe(error);
   });
 
-  it("should be able to reset error", () => {
+  it("should be able to set part error", () => {
+    const part = "myPart";
+    const error = "My error";
+    const { error: nextError } = reducer(
+      { error: false },
+      { type: SET_ERROR, payload: { part, error } }
+    );
+    expect(nextError[part]).toBe(error);
+  });
+
+  it("should be able to set another part error", () => {
+    const part = "myAnotherPart";
+    const error = "My error";
+    const { error: nextError } = reducer(
+      { error: false },
+      { type: SET_ERROR, payload: { part, error } }
+    );
+    expect(nextError[part]).toBe(error);
+  });
+
+  it("should be able to reset screen error", () => {
     const { error: nextError } = reducer(
       { error: true },
-      { type: RESET_ERROR }
+      { type: RESET_ERROR, payload: { part: "screen" } }
     );
-    expect(nextError).toBe(false);
+    expect(nextError.screen).toBe(false);
   });
 
-  it("should be able to ignore reset error payload", () => {
+  it("should be able to reset part error", () => {
+    const part = "myPart";
     const { error: nextError } = reducer(
       { error: true },
-      { type: RESET_ERROR, payload: "Dummy payload" }
+      { type: RESET_ERROR, payload: { part } }
     );
-    expect(nextError).toBe(false);
+    expect(nextError[part]).toBe(false);
   });
 
-  it("should be able to set loading", () => {
+  it("should be able to reset another part error", () => {
+    const part = "myAnotherPart";
+    const { error: nextError } = reducer(
+      { error: true },
+      { type: RESET_ERROR, payload: { part } }
+    );
+    expect(nextError[part]).toBe(false);
+  });
+
+  it("should be able to set screen loading", () => {
     const { loading: nextLoading } = reducer(
       { loading: false },
-      { type: SET_LOADING }
+      { type: SET_LOADING, payload: { part: "screen" } }
     );
-    expect(nextLoading).toBe(true);
+    expect(nextLoading.screen).toBe(true);
   });
 
-  it("should be able to reset loading", () => {
+  it("should be able to reset screen loading", () => {
     const { loading: nextLoading } = reducer(
       { loading: true },
-      { type: RESET_LOADING }
+      { type: RESET_LOADING, payload: { part: "screen" } }
     );
-    expect(nextLoading).toBe(false);
+    expect(nextLoading.screen).toBe(false);
   });
 
-  it("should be able to ignore set loading payload", () => {
+  it("should be able to set part loading", () => {
+    const part = "myPart";
     const { loading: nextLoading } = reducer(
       { loading: false },
-      { type: SET_LOADING, payload: "Dummy payload" }
+      { type: SET_LOADING, payload: { part } }
     );
-    expect(nextLoading).toBe(true);
+    expect(nextLoading[part]).toBe(true);
+  });
+
+  it("should be able to set another part loading", () => {
+    const part = "myAnotherPart";
+    const { loading: nextLoading } = reducer(
+      { loading: false },
+      { type: SET_LOADING, payload: { part } }
+    );
+    expect(nextLoading[part]).toBe(true);
   });
 
   it("should be able to set float balance", () => {

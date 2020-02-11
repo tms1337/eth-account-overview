@@ -29,39 +29,60 @@ const MainScreen = () => {
     return <FieldDisplay key={name} value={`${balance} ${name}`} icon={icon} />;
   });
 
+  const displayWithLoadingAndError = (error, loading, header, component) => {
+    return (
+      <div>
+        <h2 style={styles.header}>{header}</h2>
+        {error ? (
+          <ErrorDisplay error={error} />
+        ) : loading ? (
+          <Loader />
+        ) : (
+          component
+        )}
+      </div>
+    );
+  };
+
   return (
     <div>
       <AddressInput
         title="Enter your ETH address"
         onChange={({ target: { value } }) => setAddress(value)}
-        isError={error}
+        isError={error.screen}
       />
 
       <div style={styles.walletInfo}>
-        {error && <ErrorDisplay error={error} />}
-        {!error && loading && <Loader />}
+        {error.screen && <ErrorDisplay error={error.screen} />}
+        {!error.screen && loading.screen && <Loader />}
 
-        {!error && !loading && (
+        {!error.screen && !loading.screen && (
           <>
-            <div>
-              <h2 style={styles.header}>Wallet balance</h2>
+            {displayWithLoadingAndError(
+              error.balance,
+              loading.balance,
+              "Wallet balance",
               <FieldDisplay value={balance} icon={icon} />
-            </div>
+            )}
 
-            <div>
-              <h2 style={styles.header}>Guardians</h2>
+            {displayWithLoadingAndError(
+              error.guardians,
+              loading.guardians,
+              "Guardians",
               <FieldDisplay
                 icon={
                   "https://cdn2.iconfinder.com/data/icons/devil-angel-friend-enemy/270/angel-devil-001-512.png"
                 }
                 value={guardians}
               />
-            </div>
+            )}
 
-            <div>
-              <h2 style={styles.header}>ERC20 tokens</h2>
-              {tokenFields}
-            </div>
+            {displayWithLoadingAndError(
+              error.tokens,
+              loading.tokens,
+              "ERC20 tokens",
+              tokenFields
+            )}
           </>
         )}
       </div>
