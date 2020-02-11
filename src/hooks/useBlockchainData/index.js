@@ -8,6 +8,7 @@ import {
   fetchGuardians,
   fetchTokens
 } from "../../services/blockchain";
+import tryFetch from "./tryFetch";
 
 const {
   SET_ERROR,
@@ -15,7 +16,6 @@ const {
   SET_BALANCE,
   SET_GUARDIANS,
   SET_TOKENS,
-  SET_LOADING,
   RESET_LOADING
 } = actions;
 
@@ -30,27 +30,6 @@ const useBlockchainData = ({ nodeConfig, address, contractAddress }) => {
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);
-
-  const tryFetch = async (part, promise, action) => {
-    try {
-      dispatch({ type: RESET_ERROR, payload: { part } });
-      dispatch({ type: SET_LOADING, payload: { part } });
-
-      const value = await promise;
-
-      dispatch({ type: action, payload: value });
-      dispatch({ type: RESET_LOADING, payload: { part } });
-    } catch (error) {
-      console.error({ error });
-      dispatch({
-        type: SET_ERROR,
-        payload: {
-          part,
-          error: `An error occured while fetching ${part}`
-        }
-      });
-    }
-  };
 
   useEffect(() => {
     (async () => {
@@ -72,7 +51,8 @@ const useBlockchainData = ({ nodeConfig, address, contractAddress }) => {
             tryFetch(
               "balance",
               fetchBalance({ address, nodeConfig }),
-              SET_BALANCE
+              SET_BALANCE,
+              dispatch
             ),
             tryFetch(
               "guardians",
@@ -81,12 +61,14 @@ const useBlockchainData = ({ nodeConfig, address, contractAddress }) => {
                 nodeConfig,
                 contractAddress
               }),
-              SET_GUARDIANS
+              SET_GUARDIANS,
+              dispatch
             ),
             tryFetch(
               "tokens",
               fetchTokens({ address, nodeConfig }),
-              SET_TOKENS
+              SET_TOKENS,
+              dispatch
             )
           ]);
         } catch (error) {
