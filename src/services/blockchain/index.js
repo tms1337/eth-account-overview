@@ -23,7 +23,8 @@ const fetchGuardians = async ({
 
 const fetchTokens = async ({ address }) => {
   const response = await fetch(
-    `http://api.ethplorer.io/getAddressInfo/${address}?apiKey=freekey`
+    `http://api.ethplorer.io/getAddressInfo/${address}?apiKey=freekey`,
+    { mode: "no-cors" }
   );
 
   const { status } = response;
