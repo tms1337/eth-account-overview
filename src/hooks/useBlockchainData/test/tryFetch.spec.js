@@ -1,5 +1,5 @@
-import actions from "./actions";
-import tryFetch from "./tryFetch";
+import actions from "../actions";
+import tryFetch from "../tryFetch";
 
 const { SET_ERROR, RESET_ERROR, SET_LOADING } = actions;
 

@@ -1,5 +1,5 @@
-import reducer from "./reducer";
-import actions from "./actions";
+import reducer from "../reducer";
+import actions from "../actions";
 
 const {
   SET_ERROR,
