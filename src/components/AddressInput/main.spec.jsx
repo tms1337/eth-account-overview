@@ -39,4 +39,36 @@ describe("AddressInput", () => {
 
     expect(onChange).toHaveBeenCalledTimes(1);
   });
+
+  it("displays the submit button", () => {
+    const component = mount(<AddressInput />);
+
+    expect(component.find("input").length).toBe(1);
+  });
+
+  it("displays the submit button with correct title", () => {
+    const submitTitle = "Go go!";
+    const component = mount(<AddressInput submitTitle={submitTitle} />);
+
+    expect(component.find("button").length).toBe(1);
+    expect(
+      component
+        .find("button")
+        .at(0)
+        .text()
+    ).toBe(submitTitle);
+  });
+
+  it("displays the submit button with correct another title", () => {
+    const submitTitle = "Another Go!";
+    const component = mount(<AddressInput submitTitle={submitTitle} />);
+
+    expect(component.find("button").length).toBe(1);
+    expect(
+      component
+        .find("button")
+        .at(0)
+        .text()
+    ).toBe(submitTitle);
+  });
 });

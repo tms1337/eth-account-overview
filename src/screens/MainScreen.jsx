@@ -45,6 +45,7 @@ const MainScreen = () => {
         title="Enter your ETH address"
         onChange={({ target: { value } }) => setAddress(value)}
         isError={error.screen}
+        submitTitle={">>>"}
       />
 
       <div style={styles.walletInfo}>
