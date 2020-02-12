@@ -5,6 +5,7 @@ exports[`ErrorView renders snapshot 1`] = `
   style={
     Object {
       "color": "#ff5b5b",
+      "wordBreak": "break-all",
     }
   }
 />

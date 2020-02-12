@@ -7,7 +7,8 @@ const ErrorView = ({error}) => {
 
 const styles = {
   root: {
-    color: colors.ERROR
+    color: colors.ERROR,
+    wordBreak: "break-all"
   }
 }
 
