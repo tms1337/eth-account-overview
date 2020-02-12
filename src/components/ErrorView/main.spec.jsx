@@ -2,25 +2,25 @@ import React from "react";
 import renderer from "react-test-renderer";
 import { mount } from "enzyme";
 
-import ErrorDisplay from ".";
+import ErrorView from ".";
 
-describe("ErrorDisplay", () => {
+describe("ErrorView", () => {
   it("renders snapshot", () => {
-    const component = renderer.create(<ErrorDisplay />);
+    const component = renderer.create(<ErrorView />);
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("displays correct error value", () => {
     const error = "An error has occured";
-    const component = mount(<ErrorDisplay error={error} />);
+    const component = mount(<ErrorView error={error} />);
 
     expect(component.contains(error)).toBe(true);
   });
 
   it("displays correct different error value", () => {
     const error = "A different error has occured";
-    const component = mount(<ErrorDisplay error={error} />);
+    const component = mount(<ErrorView error={error} />);
 
     expect(component.contains(error)).toBe(true);
   });

@@ -1,7 +1,7 @@
 import React from "react";
 import { colors } from "../../config/ui";
 
-const ErrorDisplay = ({error}) => {
+const ErrorView = ({error}) => {
   return <div style={styles.root}>{error}</div>;
 }
 
@@ -11,4 +11,4 @@ const styles = {
   }
 }
 
-export default ErrorDisplay;
+export default ErrorView;

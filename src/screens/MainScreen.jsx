@@ -4,7 +4,7 @@ import AddressInput from "../components/AddressInput";
 import FieldDisplay from "../components/FieldDisplay";
 import useBlockchainData from "../hooks/useBlockchainData";
 import { nodeConfig, contractAddress } from "../config/blockchain";
-import ErrorDisplay from "../components/ErrorDisplay";
+import ErrorView from "../components/ErrorView";
 import Loader from "../components/Loader";
 import { colors } from "../config/ui";
 
@@ -32,7 +32,7 @@ const MainScreen = () => {
     return (
       <div>
         <h2 style={styles.header}>{header}</h2>
-        {error && <ErrorDisplay error={error} />}
+        {error && <ErrorView error={error} />}
         {!error && loading && <Loader />}
         {!error && !loading && component}
       </div>
@@ -48,7 +48,7 @@ const MainScreen = () => {
       />
 
       <div style={styles.walletInfo}>
-        {error.screen && <ErrorDisplay error={error.screen} />}
+        {error.screen && <ErrorView error={error.screen} />}
         {!error.screen && loading.screen && <Loader />}
 
         {!error.screen && !loading.screen && (
