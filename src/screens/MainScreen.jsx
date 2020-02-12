@@ -24,8 +24,7 @@ const MainScreen = () => {
     contractAddress
   });
 
-  const tokenFields = tokens.map(token => {
-    const { icon, balance, name } = token;
+  const tokenFields = tokens.map(({ icon, balance, name }) => {
     return <FieldDisplay key={name} value={`${balance} ${name}`} icon={icon} />;
   });
 
