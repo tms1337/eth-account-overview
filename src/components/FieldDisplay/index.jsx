@@ -1,15 +1,18 @@
 import React from "react";
+import { createUseStyles } from "react-jss";
 
 const FieldDisplay = ({ value, icon }) => {
+  const styles = useStyles();
+
   return (
-    <div style={styles.root}>
-      {icon && <img style={styles.icon} src={icon} alt="Field icon" />}
+    <div className={styles.root}>
+      {icon && <img className={styles.icon} src={icon} alt="Field icon" />}
       <div>{value}</div>
     </div>
   );
 };
 
-const styles = {
+const useStyles = createUseStyles({
   root: {
     display: "flex",
     fontSize: "20px"
@@ -18,6 +21,6 @@ const styles = {
     height: "20px",
     marginRight: "10px"
   }
-}
+});
 
 export default FieldDisplay;

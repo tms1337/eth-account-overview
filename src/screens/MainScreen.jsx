@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { createUseStyles } from "react-jss";
 
 import AddressInput from "../components/AddressInput";
 import FieldDisplay from "../components/FieldDisplay";
@@ -10,6 +11,8 @@ import Loader from "../components/Loader";
 import { colors } from "../config/ui";
 
 const MainScreen = () => {
+  const styles = useStyles();
+
   const [address, setAddress] = useState("");
 
   const {
@@ -32,7 +35,7 @@ const MainScreen = () => {
   const displayWithLoadingAndError = (error, loading, header, component) => {
     return (
       <div>
-        <h2 style={styles.header}>{header}</h2>
+        <h2 className={styles.header}>{header}</h2>
         {error && <ErrorView error={error} />}
         {!error && loading && <Loader />}
         {!error && !loading && component}
@@ -56,7 +59,7 @@ const MainScreen = () => {
         />
       </form>
 
-      <div style={styles.walletInfo}>
+      <div className={styles.walletInfo}>
         {error.screen && <ErrorView error={error.screen} />}
         {!error.screen && loading.screen && <Loader />}
 
@@ -94,7 +97,7 @@ const MainScreen = () => {
   );
 };
 
-const styles = {
+const useStyles = createUseStyles({
   header: {
     color: colors.PRIMARY
   },
@@ -103,6 +106,6 @@ const styles = {
     padding: "15px",
     marginTop: "40px"
   }
-};
+});
 
 export default MainScreen;

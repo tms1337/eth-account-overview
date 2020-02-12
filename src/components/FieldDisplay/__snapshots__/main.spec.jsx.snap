@@ -2,12 +2,7 @@
 
 exports[`FieldDisplay renders snapshot 1`] = `
 <div
-  style={
-    Object {
-      "display": "flex",
-      "fontSize": "20px",
-    }
-  }
+  className="root-0-2-1"
 >
   <div />
 </div>

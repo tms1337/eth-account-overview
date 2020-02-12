@@ -1,21 +1,24 @@
 import React from "react";
+import { createUseStyles } from "react-jss";
 
 import Header from "../../components/Header";
 
 const AppLayout = ({ children }) => {
+  const styles = useStyles();
+
   return (
-    <div style={styles.root}>
-      <div style={styles.header}>
+    <div className={styles.root}>
+      <div className={styles.header}>
         <Header
           title={"My argent wallet overview"}
         />
       </div>
-      <div style={styles.main}>{children}</div>
+      <div className={styles.main}>{children}</div>
     </div>
   );
 };
 
-const styles = {
+const useStyles = createUseStyles({
   root: {
     display: "flex",
     flexDirection: "column",
@@ -30,6 +33,6 @@ const styles = {
   main: {
     width: "50%"
   }
-};
+});
 
 export default AppLayout;

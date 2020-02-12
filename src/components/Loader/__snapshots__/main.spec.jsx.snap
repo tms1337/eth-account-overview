@@ -3,12 +3,7 @@
 exports[`Loader renders snapshot 1`] = `
 <img
   alt="data is loading"
+  className="img-0-2-1"
   src="https://imgur.com/zZ1whKT.gif"
-  style={
-    Object {
-      "height": "25px",
-      "width": "250px",
-    }
-  }
 />
 `;

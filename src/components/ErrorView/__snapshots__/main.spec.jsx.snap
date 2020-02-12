@@ -2,11 +2,6 @@
 
 exports[`ErrorView renders snapshot 1`] = `
 <div
-  style={
-    Object {
-      "color": "#ff5b5b",
-      "wordBreak": "break-all",
-    }
-  }
+  className="root-0-2-1"
 />
 `;

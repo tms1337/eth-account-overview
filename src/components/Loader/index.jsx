@@ -1,20 +1,23 @@
 import React from "react";
+import { createUseStyles } from "react-jss";
 
 const Loader = () => {
+  const styles = useStyles();
+
   return (
     <img
-      style={styles.img}
+      className={styles.img}
       src="https://imgur.com/zZ1whKT.gif"
       alt="data is loading"
     />
   );
 };
 
-const styles = {
+const useStyles = createUseStyles({
   img: {
     width: "250px",
     height: "25px"
   }
-}
+})
 
 export default Loader;

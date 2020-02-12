@@ -1,17 +1,20 @@
 import React from "react";
+import { createUseStyles } from "react-jss";
 
 import { colors } from "../../config/ui";
 
 const Header = ({ title, logo }) => {
+  const styles = useStyles();
+
   return (
-    <div style={styles.root}>
+    <div className={styles.root}>
       {logo && <img src={logo} alt="Company logo" />}
       <h2>{title}</h2>
     </div>
   );
 };
 
-const styles = {
+const useStyles = createUseStyles({
   root: {
     display: "flex",
     justifyContent: "center",
@@ -19,6 +22,6 @@ const styles = {
     background: colors.PRIMARY,
     color: colors.WHITE
   }
-};
+});
 
 export default Header;

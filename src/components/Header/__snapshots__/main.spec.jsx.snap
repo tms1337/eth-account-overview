@@ -2,15 +2,7 @@
 
 exports[`Header renders snapshot 1`] = `
 <div
-  style={
-    Object {
-      "alignItems": "center",
-      "background": "#FF875B",
-      "color": "#fff",
-      "display": "flex",
-      "justifyContent": "center",
-    }
-  }
+  className="root-0-2-1"
 >
   <h2 />
 </div>

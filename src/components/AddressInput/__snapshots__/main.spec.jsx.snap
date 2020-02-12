@@ -3,15 +3,22 @@
 exports[`AddressInput renders snapshot 1`] = `
 <div>
   <h2
-    className="title-0-2-1 title-d0-0-2-4"
+    className="title-0-2-1"
   />
-  <input
-    className="input-0-2-2 input-d1-0-2-5"
-    spellCheck={false}
-    type="text"
-  />
-  <button>
-    Go!
-  </button>
+  <div
+    className="inputForm-0-2-4"
+  >
+    <input
+      className="input-0-2-2"
+      name="address"
+      spellCheck={false}
+      type="text"
+    />
+    <button
+      className="button-0-2-5"
+    >
+      Go!
+    </button>
+  </div>
 </div>
 `;

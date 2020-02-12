@@ -1,15 +1,19 @@
 import React from "react";
+import { createUseStyles } from "react-jss";
+
 import { colors } from "../../config/ui";
 
 const ErrorView = ({error}) => {
-  return <div style={styles.root}>{error}</div>;
+  const styles = useStyles();
+
+  return <div className={styles.root}>{error}</div>;
 }
 
-const styles = {
+const useStyles = createUseStyles({
   root: {
     color: colors.ERROR,
     wordBreak: "break-all"
   }
-}
+});
 
 export default ErrorView;
