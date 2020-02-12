@@ -25,7 +25,6 @@ const fetchTokens = async ({ address }) => {
   try {
     const response = await fetch(
       `http://api.ethplorer.io/getAddressInfo/${address}?apiKey=freekey`,
-      { mode: "no-cors" }
     );
 
     const { status } = response;
@@ -38,6 +37,7 @@ const fetchTokens = async ({ address }) => {
         balance: (balance / 10 ** decimals).toString()
       }));
     } else {
+      console.error({ status, response });
       throw new Error("Non 200 response while fetching tokens");
     }
   } catch (error) {
