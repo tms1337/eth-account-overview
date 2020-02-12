@@ -1,6 +1,6 @@
 import Web3 from "web3";
 
-import abi from "./contractAbi.json";
+import abi from "../../config/contractAbi.json";
 
 const fetchBalance = async ({ address, nodeConfig: { url } }) => {
   const web3 = new Web3(url);
