@@ -30,7 +30,7 @@ const reducer = (state, action) => {
     case SET_GUARDIANS:
       return merge(state, { guardians: payload });
     case SET_TOKENS:
-      return merge(state, { tokens: payload });
+      return { ...state, tokens: payload };
     default:
       return state;
   }

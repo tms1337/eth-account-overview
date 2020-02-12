@@ -148,4 +148,16 @@ describe("reducer", () => {
     );
     expect(nextTokens).toEqual(tokens);
   });
+
+  it("should be able to override previous tokens", () => {
+    const tokens = [
+      { name: "BAT", balance: 500 },
+      { name: "0x", balance: 600 }
+    ];
+    const { tokens: nextTokens } = reducer(
+      { tokens: [{ name: "prev_BAT", balance: 125.12 }] },
+      { type: SET_TOKENS, payload: tokens }
+    );
+    expect(nextTokens).toEqual(tokens);
+  });
 });
