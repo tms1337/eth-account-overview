@@ -32,13 +32,9 @@ const MainScreen = () => {
     return (
       <div>
         <h2 style={styles.header}>{header}</h2>
-        {error ? (
-          <ErrorDisplay error={error} />
-        ) : loading ? (
-          <Loader />
-        ) : (
-          component
-        )}
+        {error && <ErrorDisplay error={error} />}
+        {!error && loading && <Loader />}
+        {!error && !loading && component}
       </div>
     );
   };
