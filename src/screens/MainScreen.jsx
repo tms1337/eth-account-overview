@@ -54,7 +54,7 @@ const MainScreen = () => {
         <AddressInput
           title="Enter your ETH address"
           isError={error.screen}
-          submitTitle={">>>"}
+          submitTitle={">"}
           registerField={register}
         />
       </form>
@@ -99,12 +99,19 @@ const MainScreen = () => {
 
 const useStyles = createUseStyles({
   header: {
-    color: colors.PRIMARY
+    color: colors.PRIMARY,
+    fontSize: "20px"
   },
   walletInfo: {
     background: colors.LIGHT_GREY,
     padding: "15px",
-    marginTop: "40px"
+    marginTop: "40px",
+    wordBreak: "break-all"
+  },
+  "@media (max-width: 600px)": {
+    header: {
+      fontSize: "15px"
+    }
   }
 });
 

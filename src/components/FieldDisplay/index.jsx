@@ -20,6 +20,11 @@ const useStyles = createUseStyles({
   icon: {
     height: "20px",
     marginRight: "10px"
+  },
+  "@media (max-width: 600px)": {
+    root: {
+      fontSize: "12px"
+    }
   }
 });
 

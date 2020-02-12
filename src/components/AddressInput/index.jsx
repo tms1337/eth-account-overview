@@ -71,6 +71,19 @@ const useStyles = createUseStyles({
       color: colors.DARK_GREY,
       outline: `0.5px solid ${colors.DARK_GREY}`
     }
+  },
+  "@media (max-width: 600px)": {
+    button: {
+      fontSize: "10px",
+      width: "80%",
+      marginTop: "5px",
+      height: "25px"
+    },
+    inputForm: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center"
+    }
   }
 });
 

@@ -15,9 +15,14 @@ const Loader = () => {
 
 const useStyles = createUseStyles({
   img: {
-    width: "250px",
+    width: "350px",
     height: "25px"
+  },
+  "@media (max-width: 600px)": {
+    img: {
+      width: "150px"
+    }
   }
-})
+});
 
 export default Loader;
