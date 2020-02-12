@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 
 import AddressInput from "../components/AddressInput";
 import FieldDisplay from "../components/FieldDisplay";
@@ -39,14 +40,21 @@ const MainScreen = () => {
     );
   };
 
+  const { register, handleSubmit } = useForm();
+  const onAddressSubmit = ({ address }) => {
+    setAddress(address);
+  };
+
   return (
     <div>
-      <AddressInput
-        title="Enter your ETH address"
-        onChange={({ target: { value } }) => setAddress(value)}
-        isError={error.screen}
-        submitTitle={">>>"}
-      />
+      <form onSubmit={handleSubmit(onAddressSubmit)}>
+        <AddressInput
+          title="Enter your ETH address"
+          isError={error.screen}
+          submitTitle={">>>"}
+          registerField={register}
+        />
+      </form>
 
       <div style={styles.walletInfo}>
         {error.screen && <ErrorView error={error.screen} />}

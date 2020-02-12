@@ -8,7 +8,8 @@ const AddressInput = ({
   onChange,
   registerField,
   isError,
-  submitTitle = "Go!"
+  submitTitle = "Go!",
+  fieldName = "address"
 }) => {
   const styles = useStyles({ colors });
 
@@ -19,6 +20,7 @@ const AddressInput = ({
       <h2 className={styles.title}>{title}</h2>
       <div className={styles.inputForm}>
         <input
+          name={fieldName}
           spellCheck={false}
           className={inputStyle}
           type="text"
@@ -42,7 +44,7 @@ const useStyles = createUseStyles({
     outline: "none",
     border: "none",
     borderBottom: `1.5px solid ${colors.DARK_GREY}`,
-    fontSize: "20px",
+    fontSize: "18px",
     color: colors.DARK_GREY
   },
   errorInput: {
@@ -50,7 +52,7 @@ const useStyles = createUseStyles({
     height: "20px",
     outline: "none",
     border: `1.5px solid ${colors.ERROR}`,
-    fontSize: "20px",
+    fontSize: "18px",
     color: colors.DARK_GREY
   },
   inputForm: {
