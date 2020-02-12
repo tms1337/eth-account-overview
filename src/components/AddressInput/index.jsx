@@ -70,7 +70,8 @@ const useStyles = createUseStyles({
     "&:active": {
       color: colors.DARK_GREY,
       outline: `0.5px solid ${colors.DARK_GREY}`
-    }
+    },
+    borderRadius: "10px"
   },
   "@media (max-width: 600px)": {
     button: {
