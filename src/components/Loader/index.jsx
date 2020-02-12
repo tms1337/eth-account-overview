@@ -4,7 +4,7 @@ const Loader = () => {
   return (
     <img
       style={styles.img}
-      src="https://media3.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif"
+      src="https://imgur.com/zZ1whKT.gif"
       alt="data is loading"
     />
   );
@@ -12,7 +12,8 @@ const Loader = () => {
 
 const styles = {
   img: {
-    width: "50px"
+    width: "250px",
+    height: "25px"
   }
 }
 

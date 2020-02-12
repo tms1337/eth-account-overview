@@ -20,7 +20,9 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    margin: 0,
+    padding: 0
   },
   header: {
     width: "100%"

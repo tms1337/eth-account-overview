@@ -3,10 +3,11 @@
 exports[`Loader renders snapshot 1`] = `
 <img
   alt="data is loading"
-  src="https://media3.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif"
+  src="https://imgur.com/zZ1whKT.gif"
   style={
     Object {
-      "width": "50px",
+      "height": "25px",
+      "width": "250px",
     }
   }
 />
