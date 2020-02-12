@@ -5,7 +5,7 @@ const actions = {
   RESET_LOADING: "RESET_LOADING",
   SET_BALANCE: "SET_BALANCE",
   SET_GUARDIANS: "SET_GUARDIANS",
-  SET_TOKENS: "SET_TOKENS",
+  SET_TOKENS: "SET_TOKENS"
 };
 
 export default actions;

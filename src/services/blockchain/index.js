@@ -24,7 +24,7 @@ const fetchGuardians = async ({
 const fetchTokens = async ({ address }) => {
   try {
     const response = await fetch(
-      `http://api.ethplorer.io/getAddressInfo/${address}?apiKey=freekey`,
+      `http://api.ethplorer.io/getAddressInfo/${address}?apiKey=freekey`
     );
 
     const { status } = response;

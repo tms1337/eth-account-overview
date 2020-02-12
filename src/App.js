@@ -8,6 +8,6 @@ const App = () => {
       <MainScreen />
     </AppLayout>
   );
-}
+};
 
 export default App;

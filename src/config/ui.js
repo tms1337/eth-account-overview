@@ -6,4 +6,4 @@ const colors = {
   ERROR: "#ff5b5b"
 };
 
-export {colors};
+export { colors };

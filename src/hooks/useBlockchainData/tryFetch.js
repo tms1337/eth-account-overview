@@ -1,11 +1,6 @@
 import actions from "./actions";
 
-const {
-  SET_ERROR,
-  RESET_ERROR,
-  SET_LOADING,
-  RESET_LOADING
-} = actions;
+const { SET_ERROR, RESET_ERROR, SET_LOADING, RESET_LOADING } = actions;
 
 const tryFetch = async (part, promise, action, dispatch) => {
   try {
