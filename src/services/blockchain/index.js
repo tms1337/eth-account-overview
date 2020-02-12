@@ -1,6 +1,7 @@
 import Web3 from "web3";
 
 import abi from "../../config/contractAbi.json";
+import { tokenApiUrl } from "../../config/blockchain";
 
 const fetchBalance = async ({ address, nodeConfig: { url } }) => {
   const web3 = new Web3(url);
@@ -24,7 +25,7 @@ const fetchGuardians = async ({
 const fetchTokens = async ({ address }) => {
   try {
     const response = await fetch(
-      `http://api.ethplorer.io/getAddressInfo/${address}?apiKey=freekey`
+      `${tokenApiUrl}/${address}?apiKey=freekey`
     );
 
     const { status } = response;
