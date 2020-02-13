@@ -23,13 +23,13 @@ Repository has the following folder structure
 
 ```
 |- src/
-	|- config/
-	|- components/
+  |- config/
+  |- components/
     |- hooks/
     |- services/
     |- screens/
     |- layouts/
-	|- App.js
+  |- App.js
 ```
 
 Let's break it down a bit. The entry point of the application is the `App.js` file.
