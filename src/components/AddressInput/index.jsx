@@ -84,6 +84,10 @@ const useStyles = createUseStyles({
       display: "flex",
       flexDirection: "column",
       alignItems: "center"
+    },
+    title: {
+      fontSize: "20px",
+      textAlign: "center"
     }
   }
 });

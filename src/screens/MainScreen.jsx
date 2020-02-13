@@ -110,8 +110,9 @@ const useStyles = createUseStyles({
   },
   "@media (max-width: 600px)": {
     header: {
-      fontSize: "15px"
-    }
+      fontSize: "15px",
+      textAlign: "center"
+    },
   }
 });
 
