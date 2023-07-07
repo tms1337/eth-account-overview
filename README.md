@@ -1,3 +1,5 @@
+(**context**: Done as a part of hiring process and interview in 2019/2020)
+
 ## Introduction
 
 This a simple ETH account overview app where once you enter a valid ETH address, you get the information about your ETH, ERC20 balance, and a number of [Argent](https://www.argent.xyz/) guardians.
